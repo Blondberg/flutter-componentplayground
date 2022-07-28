@@ -1,0 +1,509 @@
+[
+    {
+        "Title": "The Dark Knight",
+        "Year": "2008",
+        "Rated": "PG-13",
+        "Released": "18 Jul 2008",
+        "Runtime": "152 min",
+        "Genre": "Action, Crime, Drama",
+        "Director": "Christopher Nolan",
+        "Writer": "Jonathan Nolan, Christopher Nolan, David S. Goyer",
+        "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart",
+        "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        "Language": "English, Mandarin",
+        "Country": "United States, United Kingdom",
+        "Awards": "Won 2 Oscars. 159 wins & 163 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "94%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "84/100"
+            }
+        ],
+        "Metascore": "84",
+        "imdbRating": "9.0",
+        "imdbVotes": "2,574,403",
+        "imdbID": "tt0468569",
+        "Type": "movie",
+        "DVD": "09 Dec 2008",
+        "BoxOffice": "$534,987,076",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Dune",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "22 Oct 2021",
+        "Runtime": "155 min",
+        "Genre": "Action, Adventure, Drama",
+        "Director": "Denis Villeneuve",
+        "Writer": "Jon Spaihts, Denis Villeneuve, Eric Roth",
+        "Actors": "Timothée Chalamet, Rebecca Ferguson, Zendaya",
+        "Plot": "A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir becomes troubled by visions of a dark future.",
+        "Language": "English, Mandarin",
+        "Country": "Canada, United States",
+        "Awards": "Won 6 Oscars. 162 wins & 273 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "83%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "74/100"
+            }
+        ],
+        "Metascore": "74",
+        "imdbRating": "8.0",
+        "imdbVotes": "591,378",
+        "imdbID": "tt1160419",
+        "Type": "movie",
+        "DVD": "22 Oct 2021",
+        "BoxOffice": "$108,327,830",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Life of Pi",
+        "Year": "2012",
+        "Rated": "PG",
+        "Released": "21 Nov 2012",
+        "Runtime": "127 min",
+        "Genre": "Adventure, Drama, Fantasy",
+        "Director": "Ang Lee",
+        "Writer": "Yann Martel, David Magee",
+        "Actors": "Suraj Sharma, Irrfan Khan, Adil Hussain",
+        "Plot": "A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.",
+        "Language": "English, Hindi, Japanese, French",
+        "Country": "United States, Taiwan, United Kingdom, Canada",
+        "Awards": "Won 4 Oscars. 81 wins & 135 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNTg2OTY2ODg5OF5BMl5BanBnXkFtZTcwODM5MTYxOA@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.9/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "86%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "79/100"
+            }
+        ],
+        "Metascore": "79",
+        "imdbRating": "7.9",
+        "imdbVotes": "621,098",
+        "imdbID": "tt0454876",
+        "Type": "movie",
+        "DVD": "12 Mar 2013",
+        "BoxOffice": "$124,987,023",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Life of Brian",
+        "Year": "1979",
+        "Rated": "R",
+        "Released": "17 Aug 1979",
+        "Runtime": "94 min",
+        "Genre": "Comedy",
+        "Director": "Terry Jones",
+        "Writer": "Graham Chapman, John Cleese, Terry Gilliam",
+        "Actors": "Graham Chapman, John Cleese, Michael Palin",
+        "Plot": "Born on the original Christmas in the stable next door to Jesus Christ, Brian of Nazareth spends his life being mistaken for a messiah.",
+        "Language": "English, Latin",
+        "Country": "United Kingdom",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDA1ZWI4ZDItOTRlYi00OTUxLWFlNWQtMzM5NDI0YjA4ZGI2XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "96%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "77/100"
+            }
+        ],
+        "Metascore": "77",
+        "imdbRating": "8.0",
+        "imdbVotes": "394,615",
+        "imdbID": "tt0079470",
+        "Type": "movie",
+        "DVD": "16 Nov 1999",
+        "BoxOffice": "$20,206,622",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Kung Fu Panda",
+        "Year": "2008",
+        "Rated": "PG",
+        "Released": "06 Jun 2008",
+        "Runtime": "92 min",
+        "Genre": "Animation, Action, Adventure",
+        "Director": "Mark Osborne, John Stevenson",
+        "Writer": "Jonathan Aibel, Glenn Berger, Ethan Reiff",
+        "Actors": "Jack Black, Ian McShane, Angelina Jolie",
+        "Plot": "To everyone's surprise, including his own, Po, an overweight, clumsy panda, is chosen as protector of the Valley of Peace. His suitability will soon be tested as the valley's arch-enemy is on his way.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "Nominated for 1 Oscar. 14 wins & 39 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "87%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "74/100"
+            }
+        ],
+        "Metascore": "74",
+        "imdbRating": "7.6",
+        "imdbVotes": "459,101",
+        "imdbID": "tt0441773",
+        "Type": "movie",
+        "DVD": "07 Nov 2008",
+        "BoxOffice": "$215,771,591",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "From Paris with Love",
+        "Year": "2010",
+        "Rated": "R",
+        "Released": "05 Feb 2010",
+        "Runtime": "92 min",
+        "Genre": "Action, Crime, Thriller",
+        "Director": "Pierre Morel",
+        "Writer": "Adi Hasak, Luc Besson",
+        "Actors": "John Travolta, Jonathan Rhys Meyers, Kasia Smutniak",
+        "Plot": "In Paris, a young employee in the office of the US Ambassador hooks up with an American spy looking to stop a terrorist attack in the city.",
+        "Language": "English, French, Mandarin, German",
+        "Country": "France, United Kingdom, United States",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BODAwMDFjNjktMWY2Mi00MmVhLWI0MjYtNzg4OTI0NzA5YzBjXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.4/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "37%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "42/100"
+            }
+        ],
+        "Metascore": "42",
+        "imdbRating": "6.4",
+        "imdbVotes": "116,993",
+        "imdbID": "tt1179034",
+        "Type": "movie",
+        "DVD": "08 Jun 2010",
+        "BoxOffice": "$24,077,427",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Fight Club",
+        "Year": "1999",
+        "Rated": "R",
+        "Released": "15 Oct 1999",
+        "Runtime": "139 min",
+        "Genre": "Drama",
+        "Director": "David Fincher",
+        "Writer": "Chuck Palahniuk, Jim Uhls",
+        "Actors": "Brad Pitt, Edward Norton, Meat Loaf",
+        "Plot": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+        "Language": "English",
+        "Country": "Germany, United States",
+        "Awards": "Nominated for 1 Oscar. 11 wins & 38 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "79%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "66/100"
+            }
+        ],
+        "Metascore": "66",
+        "imdbRating": "8.8",
+        "imdbVotes": "2,057,512",
+        "imdbID": "tt0137523",
+        "Type": "movie",
+        "DVD": "14 Oct 2003",
+        "BoxOffice": "$37,030,102",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Lord of the Rings: The Fellowship of the Ring",
+        "Year": "2001",
+        "Rated": "PG-13",
+        "Released": "19 Dec 2001",
+        "Runtime": "178 min",
+        "Genre": "Action, Adventure, Drama",
+        "Director": "Peter Jackson",
+        "Writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+        "Actors": "Elijah Wood, Ian McKellen, Orlando Bloom",
+        "Plot": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "Language": "English, Sindarin",
+        "Country": "New Zealand, United States",
+        "Awards": "Won 4 Oscars. 121 wins & 126 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "91%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "92/100"
+            }
+        ],
+        "Metascore": "92",
+        "imdbRating": "8.8",
+        "imdbVotes": "1,816,473",
+        "imdbID": "tt0120737",
+        "Type": "movie",
+        "DVD": "06 Aug 2002",
+        "BoxOffice": "$316,115,420",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Good the Bad the Ugly",
+        "Year": "2016",
+        "Rated": "N/A",
+        "Released": "30 Mar 2016",
+        "Runtime": "28 min",
+        "Genre": "Short, Crime",
+        "Director": "Mohammad Reza Alipour",
+        "Writer": "Mohammad Reza Alipour",
+        "Actors": "Mansour Azari, Mohammad Reza Gharagozlo, Maziar Tafreshi",
+        "Plot": "A short film with three-episode, starring Arshia Zeinali in a night in a taxi...",
+        "Language": "Persian",
+        "Country": "Iran",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNDdmZjgyNzItZTBjNS00NTE1LWEwMjMtMTc3MmRlNjFjODRkXkEyXkFqcGdeQXVyNDU4ODUyMzY@._V1_SX300.jpg",
+        "Ratings": [],
+        "Metascore": "N/A",
+        "imdbRating": "N/A",
+        "imdbVotes": "N/A",
+        "imdbID": "tt11279566",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Lock, Stock and Two Smoking Barrels",
+        "Year": "1998",
+        "Rated": "R",
+        "Released": "28 Aug 1998",
+        "Runtime": "107 min",
+        "Genre": "Action, Comedy, Crime",
+        "Director": "Guy Ritchie",
+        "Writer": "Guy Ritchie",
+        "Actors": "Jason Flemyng, Dexter Fletcher, Nick Moran",
+        "Plot": "Eddy persuades his three pals to pool money for a vital poker game against a powerful local mobster, Hatchet Harry. Eddy loses, after which Harry gives him a week to pay back 500,000 pounds.",
+        "Language": "English",
+        "Country": "United Kingdom",
+        "Awards": "Won 1 BAFTA Award13 wins & 9 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTAyN2JmZmEtNjAyMy00NzYwLThmY2MtYWQ3OGNhNjExMmM4XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "75%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "66/100"
+            }
+        ],
+        "Metascore": "66",
+        "imdbRating": "8.2",
+        "imdbVotes": "573,488",
+        "imdbID": "tt0120735",
+        "Type": "movie",
+        "DVD": "11 Mar 2008",
+        "BoxOffice": "$3,753,929",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Crouching Tiger, Hidden Dragon",
+        "Year": "2000",
+        "Rated": "PG-13",
+        "Released": "12 Jan 2001",
+        "Runtime": "120 min",
+        "Genre": "Action, Adventure, Drama",
+        "Director": "Ang Lee",
+        "Writer": "Hui-Ling Wang, James Schamus, Kuo Jung Tsai",
+        "Actors": "Chow Yun-Fat, Michelle Yeoh, Ziyi Zhang",
+        "Plot": "A young Chinese warrior steals a sword from a famed swordsman and then escapes into a world of romantic adventure with a mysterious man in the frontier of the nation.",
+        "Language": "Chinese, English, Mandarin",
+        "Country": "Taiwan, Hong Kong, United States, China",
+        "Awards": "Won 4 Oscars. 102 wins & 134 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNDdhMzMxOTctNDMyNS00NTZmLTljNWEtNTc4MDBmZTYxY2NmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.9/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "97%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "94/100"
+            }
+        ],
+        "Metascore": "94",
+        "imdbRating": "7.9",
+        "imdbVotes": "266,861",
+        "imdbID": "tt0190332",
+        "Type": "movie",
+        "DVD": "05 Jun 2001",
+        "BoxOffice": "$128,078,872",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Magnificent Seven",
+        "Year": "1960",
+        "Rated": "Approved",
+        "Released": "12 Oct 1960",
+        "Runtime": "128 min",
+        "Genre": "Action, Adventure, Western",
+        "Director": "John Sturges",
+        "Writer": "William Roberts, Akira Kurosawa, Walter Bernstein",
+        "Actors": "Yul Brynner, Steve McQueen, Charles Bronson",
+        "Plot": "Seven gunfighters are hired by Mexican peasants to liberate their village from oppressive bandits.",
+        "Language": "English, Spanish",
+        "Country": "United States",
+        "Awards": "Nominated for 1 Oscar. 2 wins & 6 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMzYyNzU0MTM1OF5BMl5BanBnXkFtZTcwMzE1ODE1NA@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "89%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "74/100"
+            }
+        ],
+        "Metascore": "74",
+        "imdbRating": "7.7",
+        "imdbVotes": "94,242",
+        "imdbID": "tt0054047",
+        "Type": "movie",
+        "DVD": "08 May 2001",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Magnificent Seven",
+        "Year": "2016",
+        "Rated": "PG-13",
+        "Released": "23 Sep 2016",
+        "Runtime": "132 min",
+        "Genre": "Action, Adventure, Western",
+        "Director": "Antoine Fuqua",
+        "Writer": "Akira Kurosawa, Shinobu Hashimoto, Hideo Oguni",
+        "Actors": "Denzel Washington, Chris Pratt, Ethan Hawke",
+        "Plot": "Seven gunmen from a variety of backgrounds are brought together by a vengeful young widow to protect her town from the private army of a destructive industrialist.",
+        "Language": "English, North American Indian, Spanish",
+        "Country": "United States, Australia",
+        "Awards": "5 wins & 12 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTUzNTc0NTAyM15BMl5BanBnXkFtZTgwMTk1ODA5OTE@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "63%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "54/100"
+            }
+        ],
+        "Metascore": "54",
+        "imdbRating": "6.8",
+        "imdbVotes": "210,400",
+        "imdbID": "tt2404435",
+        "Type": "movie",
+        "DVD": "20 Dec 2016",
+        "BoxOffice": "$93,432,655",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    }
+]
