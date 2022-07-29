@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_componentplayground/constants.dart';
 import 'package:flutter_componentplayground/screens/movie/components/movie_detail_screen.dart';
 import 'package:flutter_componentplayground/screens/selection_button/components/BubbleMenu.dart';
 import 'package:flutter_componentplayground/screens/selection_button/components/BubbleMenuItem.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MovieListScreen extends StatefulWidget {
   const MovieListScreen({Key? key}) : super(key: key);
@@ -14,44 +16,13 @@ class MovieListScreen extends StatefulWidget {
 }
 
 class _MovieListScreenState extends State<MovieListScreen> {
-  List<Map<String, dynamic>> movies2 = List<Map<String, dynamic>>.generate(
-    50,
-    (index) => {
-      "Title": "Dune",
-      "Year": "2021",
-      "Rated": "PG-13",
-      "Released": "22 Oct 2021",
-      "Runtime": "155 min",
-      "Genre": "Action, Adventure, Drama",
-      "Director": "Denis Villeneuve",
-      "Writer": "Jon Spaihts, Denis Villeneuve, Eric Roth",
-      "Actors": "Timothée Chalamet, Rebecca Ferguson, Zendaya",
-      "Plot":
-          "A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir becomes troubled by visions of a dark future.",
-      "Language": "English, Mandarin",
-      "Country": "Canada, United States",
-      "Awards": "Won 6 Oscars. 162 wins & 273 nominations total",
-      "Poster":
-          "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
-      "Ratings": [
-        {"Source": "Internet Movie Database", "Value": "8.0/10"},
-        {"Source": "Rotten Tomatoes", "Value": "83%"},
-        {"Source": "Metacritic", "Value": "74/100"}
-      ],
-      "Metascore": "74",
-      "imdbRating": "8.0",
-      "imdbVotes": "591,378",
-      "imdbID": "tt1160419",
-      "Type": "movie",
-      "DVD": "22 Oct 2021",
-      "BoxOffice": "\$108,327,830",
-      "Production": "N/A",
-      "Website": "N/A",
-      "Response": "True"
-    },
-  );
-
   List<dynamic>? movies;
+
+  final List<Color> _itemColors = [
+    const Color(0xffAA9AFF),
+    const Color(0xffFF7360),
+    const Color(0xffF8AA4C),
+  ];
 
   Future<String> loadJsonData() async {
     var jsonText = await rootBundle.loadString('assets/json/movies.json');
@@ -74,33 +45,60 @@ class _MovieListScreenState extends State<MovieListScreen> {
           Column(
             children: [
               Container(
-                padding: const EdgeInsets.all(30),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 width: size.width,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
                       "Movie List",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 12,
                         fontFamily: "Roboto",
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
                         letterSpacing: 2,
                       ),
                     ),
-                    Row(
-                      children: const [
-                        Icon(Icons.search, color: Colors.white, size: 30),
-                        SizedBox(
-                          width: 10,
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                width: size.width * .8,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: kDefaultFrame,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      "assets/svg/searchshort.svg",
+                      color: Colors.white.withOpacity(.6),
+                      height: 15,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Text(
+                        "Search",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white.withOpacity(.6),
+                          fontWeight: FontWeight.w300,
                         ),
-                        Icon(
-                          Icons.filter_list,
-                          color: Colors.white,
-                          size: 30,
-                        )
-                      ],
+                      ),
+                    ),
+                    Icon(
+                      Icons.filter_list_rounded,
+                      color: Colors.white.withOpacity(.6),
+                      size: 20,
                     )
                   ],
                 ),
@@ -114,20 +112,16 @@ class _MovieListScreenState extends State<MovieListScreen> {
                       colors: [
                         Colors.purple,
                         Colors.transparent,
-                        Colors.transparent,
-                        Colors.purple
                       ],
                       stops: [
                         0.0,
-                        0.05,
-                        0.95,
-                        1.0
+                        0.03,
                       ], // 10% purple, 80% transparent, 10% purple
                     ).createShader(rect);
                   },
                   blendMode: BlendMode.dstOut,
                   child: ListView.builder(
-                    padding: EdgeInsets.symmetric(horizontal: 50),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     shrinkWrap: true,
                     itemCount: movies == null ? 0 : movies?.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -136,19 +130,33 @@ class _MovieListScreenState extends State<MovieListScreen> {
                           MaterialPageRoute(
                             builder: (context) => MovieDetailScreen(
                               movieData: movies![index],
+                              color: _itemColors[index % _itemColors.length],
                             ),
                           ),
                         ),
                         child: Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
+                          padding: const EdgeInsets.all(10),
+                          margin: const EdgeInsets.symmetric(vertical: 5),
                           width: size.width,
+                          decoration: BoxDecoration(
+                            color: _itemColors[index % _itemColors.length],
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black,
+                                blurRadius: 0,
+                                spreadRadius: 0,
+                                offset: Offset(4, 4),
+                              ),
+                            ],
+                          ),
                           child: Row(
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(7),
                                 child: Image.network(
                                   movies![index]["Poster"],
-                                  width: 50,
+                                  width: 47,
                                 ),
                               ),
                               const SizedBox(width: 10),
@@ -159,16 +167,16 @@ class _MovieListScreenState extends State<MovieListScreen> {
                                   text: TextSpan(
                                     text: "${movies![index]["Title"]} \n",
                                     style: const TextStyle(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white),
                                     children: [
                                       TextSpan(
                                         text:
                                             "${movies![index]["Year"]} \u2022 ",
                                         style: const TextStyle(
                                           fontWeight: FontWeight.w300,
-                                          fontSize: 12,
+                                          fontSize: 11,
                                         ),
                                         children: [
                                           TextSpan(
@@ -201,13 +209,13 @@ class _MovieListScreenState extends State<MovieListScreen> {
           BubbleMenu(
             items: [
               BubbleMenuItem(
-                icon: Icon(Icons.search_rounded),
+                icon: const Icon(Icons.search_rounded),
                 onTap: () {
                   print("Scan to search");
                 },
               ),
               BubbleMenuItem(
-                icon: Icon(Icons.add_rounded),
+                icon: const Icon(Icons.add_rounded),
                 onTap: () => print("Scan to add"),
               )
             ],

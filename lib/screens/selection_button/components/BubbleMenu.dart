@@ -106,12 +106,15 @@ class _BubbleMenuState extends State<BubbleMenu>
                 margin: const EdgeInsets.all(20),
                 height: 60,
                 width: 60,
-                decoration: const BoxDecoration(
-                    color: Color(0xFF172358),
+                decoration: BoxDecoration(
+                    color: Color(0xFF63B4FF),
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                          offset: Offset(0, 4), spreadRadius: 0, blurRadius: 4),
+                          offset: Offset(0, 0),
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          color: Colors.black.withOpacity(.25)),
                     ]),
                 child: Transform.rotate(
                   angle: lerpDouble(0, -pi / 4, _animation.value)!,
