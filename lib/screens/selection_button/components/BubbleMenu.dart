@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_componentplayground/constants.dart';
 import 'package:flutter_componentplayground/screens/selection_button/components/BubbleMenuItem.dart';
 
 class BubbleMenu extends StatefulWidget {
@@ -34,7 +35,7 @@ class _BubbleMenuState extends State<BubbleMenu>
     _config();
     _animationController = AnimationController(
       vsync: this,
-      reverseDuration: const Duration(milliseconds: 500),
+      reverseDuration: const Duration(milliseconds: 700),
       duration: const Duration(milliseconds: 1000),
     )..addListener(() {
         setState(() {});
@@ -51,7 +52,7 @@ class _BubbleMenuState extends State<BubbleMenu>
   }
 
   void _config() {
-    _radius = 50;
+    _radius = 40;
     _itemCount = widget.items.length;
   }
 
@@ -72,12 +73,16 @@ class _BubbleMenuState extends State<BubbleMenu>
         Positioned.fill(
           child: Align(
             alignment: Alignment.bottomRight,
-            child: Transform.translate(
-              offset: Offset.fromDirection(
-                (_initialAngle + ((_completeAngle / (_itemCount - 1)) * index)),
-                _animation.value * _radius,
+            child: Transform.scale(
+              scale: _animation.value,
+              child: Transform.translate(
+                offset: Offset.fromDirection(
+                  (_initialAngle +
+                      ((_completeAngle / (_itemCount - 1)) * index)),
+                  1 * _radius,
+                ),
+                child: item,
               ),
-              child: item,
             ),
           ),
         ),
@@ -102,28 +107,31 @@ class _BubbleMenuState extends State<BubbleMenu>
                     ? forwardAnimation()
                     : reverseAnimation();
               },
-              child: Container(
-                margin: const EdgeInsets.all(20),
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                    color: Color(0xFF63B4FF),
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(0, 0),
-                          spreadRadius: 2,
-                          blurRadius: 4,
-                          color: Colors.black.withOpacity(.25)),
-                    ]),
-                child: Transform.rotate(
-                  angle: lerpDouble(0, -pi / 4, _animation.value)!,
-                  child: Icon(
-                    _animation.value <= .5
-                        ? Icons.qr_code_scanner_rounded
-                        : Icons.add_rounded,
-                    color: Colors.white,
-                    size: 30,
+              child: Transform.scale(
+                scale: -_animation.value * 0.3 + 1,
+                child: Container(
+                  margin: const EdgeInsets.all(20),
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                      color: Color.lerp(kPrimaryBlue, kDefaultBackground, 0),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 0),
+                            spreadRadius: 2,
+                            blurRadius: 2,
+                            color: Colors.black.withOpacity(.30)),
+                      ]),
+                  child: Transform.rotate(
+                    angle: lerpDouble(0, -pi / 4, _animation.value)!,
+                    child: Icon(
+                      _animation.value <= .5
+                          ? Icons.qr_code_scanner_rounded
+                          : Icons.add_rounded,
+                      color: Colors.white,
+                      size: 30,
+                    ),
                   ),
                 ),
               ),

@@ -17,16 +17,52 @@ class MovieListScreen extends StatefulWidget {
 
 class _MovieListScreenState extends State<MovieListScreen> {
   List<dynamic>? movies;
+  late List<dynamic> moviesDuplicate = <dynamic>[];
+  final FocusNode _textFocus = FocusNode();
+
+  TextEditingController _editingController = TextEditingController();
 
   final List<Color> _itemColors = [
     const Color(0xffAA9AFF),
     const Color(0xffFF7360),
     const Color(0xffF8AA4C),
+    Color.fromARGB(255, 127, 158, 103),
   ];
+
+  void filterSearchResults(String query) {
+    List<dynamic> dummyList = <dynamic>[];
+    dummyList.addAll(moviesDuplicate);
+
+    if (query.isNotEmpty) {
+      List<dynamic> dummyListData = <dynamic>[];
+      dummyList.forEach((element) {
+        if (element["Title"]
+            .toString()
+            .toLowerCase()
+            .replaceAll(' ', '')
+            .contains(query.toLowerCase().replaceAll(' ', ''))) {
+          dummyListData.add(element);
+        }
+      });
+      setState(() {
+        movies?.clear();
+        movies?.addAll(dummyListData);
+      });
+      return;
+    } else {
+      setState(() {
+        movies?.clear();
+        movies?.addAll(moviesDuplicate);
+      });
+    }
+  }
 
   Future<String> loadJsonData() async {
     var jsonText = await rootBundle.loadString('assets/json/movies.json');
-    setState(() => movies = jsonDecode(jsonText));
+    setState(() {
+      movies = jsonDecode(jsonText);
+      moviesDuplicate.addAll(movies!);
+    });
     return 'success';
   }
 
@@ -76,17 +112,30 @@ class _MovieListScreenState extends State<MovieListScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SvgPicture.asset(
-                      "assets/svg/searchshort.svg",
-                      color: Colors.white.withOpacity(.6),
-                      height: 15,
+                    GestureDetector(
+                      onTap: () =>
+                          FocusScope.of(context).requestFocus(_textFocus),
+                      child: SvgPicture.asset(
+                        "assets/svg/searchshort.svg",
+                        color: Colors.white.withOpacity(.6),
+                        height: 15,
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Expanded(
-                      child: Text(
-                        "Search",
+                      child: TextField(
+                        focusNode: _textFocus,
+                        onChanged: (value) => filterSearchResults(value),
+                        controller: _editingController,
+                        decoration: const InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.all(0),
+                          hintText: "Search",
+                          border: InputBorder.none,
+                          hoverColor: Colors.transparent,
+                        ),
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 12,
@@ -94,6 +143,23 @@ class _MovieListScreenState extends State<MovieListScreen> {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
+                    ),
+                    IconButton(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      padding: EdgeInsets.zero,
+                      constraints: BoxConstraints(),
+                      onPressed: () => setState(
+                        () {
+                          _editingController.clear();
+                          filterSearchResults("");
+                        },
+                      ),
+                      icon: Icon(Icons.close_rounded,
+                          size: 20,
+                          color: _editingController.text != ''
+                              ? Colors.white.withOpacity(.6)
+                              : Colors.transparent),
                     ),
                     Icon(
                       Icons.filter_list_rounded,
@@ -123,8 +189,13 @@ class _MovieListScreenState extends State<MovieListScreen> {
                   child: ListView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     shrinkWrap: true,
-                    itemCount: movies == null ? 0 : movies?.length,
+                    itemCount: movies == null ? 0 : (movies?.length)! + 1,
                     itemBuilder: (BuildContext context, int index) {
+                      if (index == movies?.length) {
+                        return const SizedBox(
+                          height: 100,
+                        );
+                      }
                       return GestureDetector(
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
@@ -209,13 +280,21 @@ class _MovieListScreenState extends State<MovieListScreen> {
           BubbleMenu(
             items: [
               BubbleMenuItem(
-                icon: const Icon(Icons.search_rounded),
+                icon: const Icon(
+                  Icons.search_rounded,
+                  color: Colors.white,
+                  size: 15,
+                ),
                 onTap: () {
                   print("Scan to search");
                 },
               ),
               BubbleMenuItem(
-                icon: const Icon(Icons.add_rounded),
+                icon: const Icon(
+                  Icons.add_rounded,
+                  color: Colors.white,
+                  size: 15,
+                ),
                 onTap: () => print("Scan to add"),
               )
             ],

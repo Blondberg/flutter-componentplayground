@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_componentplayground/screens/movie/components/movie_edit_screen.dart';
+import 'package:flutter_componentplayground/screens/movie/components/my_appbar_item.dart';
 
 class MovieDetailScreen extends StatelessWidget {
   final Map<String, dynamic> movieData;
@@ -24,14 +26,18 @@ class MovieDetailScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       MyAppBarItem(
-                        icon: const Icon(Icons.close_rounded,
+                        icon: const Icon(Icons.arrow_back_ios_rounded,
                             color: Colors.white),
                         onTap: () => Navigator.of(context).pop(),
                       ),
                       MyAppBarItem(
                         icon:
                             const Icon(Icons.edit_rounded, color: Colors.white),
-                        onTap: () => print("Edit"),
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => MovieEditScreen(),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -250,34 +256,6 @@ class MovieDetailScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class MyAppBarItem extends StatelessWidget {
-  final Icon icon;
-  final onTap;
-  const MyAppBarItem({
-    Key? key,
-    required this.icon,
-    this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: Colors.white.withOpacity(.29),
-          ),
-        ),
-        child: icon,
       ),
     );
   }
