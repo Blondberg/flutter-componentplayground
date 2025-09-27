@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_componentplayground/screens/home/home_screen.dart';
+import 'package:flutter_componentplayground/screens/movie/movie_screen.dart';
 import 'constants.dart';
 
 void main() {
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          fontFamily: "Roboto", scaffoldBackgroundColor: kDefaultBackground),
-      home: const HomeScreen(),
+          fontFamily: "Roboto", scaffoldBackgroundColor: Colors.transparent),
+      home: const MovieScreen(),
     );
   }
 }

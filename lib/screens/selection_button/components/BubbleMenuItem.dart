@@ -19,21 +19,23 @@ class _BubbleMenuItemState extends State<BubbleMenuItem> {
       height: 50,
       width: 50,
       alignment: Alignment.center,
-      child: InkWell(
+      child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
-          height: 30,
-          width: 30,
+          height: 50,
+          width: 50,
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: kDefaultBackground,
-              boxShadow: [
-                BoxShadow(
-                    offset: Offset(0, 0),
-                    spreadRadius: 2,
-                    blurRadius: 2,
-                    color: Colors.black.withOpacity(.30)),
-              ]),
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white,
+              ),
+              BoxShadow(
+                color: kDefaultBackground,
+                spreadRadius: -2.0,
+              ),
+            ],
+          ),
           child: widget.icon,
         ),
       ),

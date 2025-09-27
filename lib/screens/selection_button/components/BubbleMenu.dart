@@ -17,9 +17,10 @@ class _BubbleMenuState extends State<BubbleMenu>
     with SingleTickerProviderStateMixin {
   bool isOpened = false;
 
-  AlignmentGeometry alignment = Alignment.bottomRight;
+  AlignmentGeometry alignment = Alignment.bottomCenter;
 
   late Animation<double> _animation;
+  late Animation<double> _backgroundAnimation;
 
   double _radius = 0;
 
@@ -35,14 +36,21 @@ class _BubbleMenuState extends State<BubbleMenu>
     _config();
     _animationController = AnimationController(
       vsync: this,
-      reverseDuration: const Duration(milliseconds: 700),
-      duration: const Duration(milliseconds: 1000),
+      reverseDuration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 900),
     )..addListener(() {
         setState(() {});
       });
 
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: _animationController, curve: Curves.elasticOut));
+
+    _backgroundAnimation = Tween<double>(begin: 0.0, end: .8).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Interval(0.0, 0.6, curve: Curves.fastOutSlowIn),
+      ),
+    );
 
     super.initState();
   }
@@ -52,7 +60,7 @@ class _BubbleMenuState extends State<BubbleMenu>
   }
 
   void _config() {
-    _radius = 40;
+    _radius = 60;
     _itemCount = widget.items.length;
   }
 
@@ -72,14 +80,15 @@ class _BubbleMenuState extends State<BubbleMenu>
       items.add(
         Positioned.fill(
           child: Align(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.bottomCenter,
             child: Transform.scale(
-              scale: _animation.value,
+              scale: 1, //_animation.value,
               child: Transform.translate(
                 offset: Offset.fromDirection(
-                  (_initialAngle +
-                      ((_completeAngle / (_itemCount - 1)) * index)),
-                  1 * _radius,
+                  -pi / 2, _animation.value * _radius * (index + 1),
+                  // (_initialAngle +
+                  //     ((_completeAngle / (_itemCount - 1)) * index)),
+                  // 1 * _radius,
                 ),
                 child: item,
               ),
@@ -93,12 +102,30 @@ class _BubbleMenuState extends State<BubbleMenu>
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
+        IgnorePointer(
+          ignoring: _animationController.value > 0 ? false : true,
+          child: GestureDetector(
+            onTap: _animationController.status == AnimationStatus.completed
+                ? () => reverseAnimation()
+                : () {},
+            child: Positioned.fill(
+              child: Container(
+                height: size.height,
+                width: size.width,
+                decoration: BoxDecoration(
+                    color: kDefaultBackground
+                        .withOpacity(_backgroundAnimation.value)),
+              ),
+            ),
+          ),
+        ),
         ..._buildItems(),
         Positioned.fill(
           child: Align(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.bottomCenter,
             child: GestureDetector(
               onTap: () {
                 print("Menu clicked");
@@ -108,13 +135,14 @@ class _BubbleMenuState extends State<BubbleMenu>
                     : reverseAnimation();
               },
               child: Transform.scale(
-                scale: -_animation.value * 0.3 + 1,
+                scale: 1, //-_animation.value * 0.3 + 1,
                 child: Container(
                   margin: const EdgeInsets.all(20),
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                      color: Color.lerp(kPrimaryBlue, kDefaultBackground, 0),
+                      color: Color.lerp(
+                          kPrimaryYellow, Colors.white, _animation.value),
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -129,7 +157,8 @@ class _BubbleMenuState extends State<BubbleMenu>
                       _animation.value <= .5
                           ? Icons.qr_code_scanner_rounded
                           : Icons.add_rounded,
-                      color: Colors.white,
+                      color: Color.lerp(
+                          Colors.white, kPrimaryYellow, _animation.value),
                       size: 30,
                     ),
                   ),

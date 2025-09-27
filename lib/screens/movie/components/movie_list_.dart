@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_componentplayground/constants.dart';
 import 'package:flutter_componentplayground/screens/movie/components/movie_detail_screen.dart';
+import 'package:flutter_componentplayground/screens/movie/components/movie_list_item.dart';
 import 'package:flutter_componentplayground/screens/selection_button/components/BubbleMenu.dart';
 import 'package:flutter_componentplayground/screens/selection_button/components/BubbleMenuItem.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,20 +25,17 @@ class _MovieListScreenState extends State<MovieListScreen> {
   TextEditingController _editingController = TextEditingController();
 
   final List<Color> _itemColors = [
-    const Color(0xffAA9AFF),
-    const Color(0xffFF7360),
-    const Color(0xffF8AA4C),
-    Color.fromARGB(255, 127, 158, 103),
+    Color(0xff8685EF),
   ];
 
-  void filterSearchResults(String query) {
+  void filterSearchResults(String query, {String field = "Title"}) {
     List<dynamic> dummyList = <dynamic>[];
     dummyList.addAll(moviesDuplicate);
 
     if (query.isNotEmpty) {
       List<dynamic> dummyListData = <dynamic>[];
       dummyList.forEach((element) {
-        if (element["Title"]
+        if (element[field]
             .toString()
             .toLowerCase()
             .replaceAll(' ', '')
@@ -85,7 +84,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                 width: size.width,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "Movie List",
                       textAlign: TextAlign.center,
@@ -93,7 +92,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                         fontSize: 12,
                         fontFamily: "Roboto",
                         fontWeight: FontWeight.w400,
-                        color: Colors.white,
+                        color: kDefaultText,
                         letterSpacing: 2,
                       ),
                     ),
@@ -102,8 +101,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
               ),
               Container(
                 margin: const EdgeInsets.only(bottom: 10),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                padding: const EdgeInsets.only(left: 5, right: 5),
                 width: size.width * .8,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -117,12 +115,9 @@ class _MovieListScreenState extends State<MovieListScreen> {
                           FocusScope.of(context).requestFocus(_textFocus),
                       child: SvgPicture.asset(
                         "assets/svg/searchshort.svg",
-                        color: Colors.white.withOpacity(.6),
+                        color: kDefaultText.withOpacity(.6),
                         height: 15,
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10,
                     ),
                     Expanded(
                       child: TextField(
@@ -131,7 +126,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                         controller: _editingController,
                         decoration: const InputDecoration(
                           isDense: true,
-                          contentPadding: EdgeInsets.all(0),
+                          contentPadding: EdgeInsets.all(10),
                           hintText: "Search",
                           border: InputBorder.none,
                           hoverColor: Colors.transparent,
@@ -139,7 +134,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.white.withOpacity(.6),
+                          color: kDefaultText.withOpacity(.6),
                           fontWeight: FontWeight.w300,
                         ),
                       ),
@@ -158,12 +153,12 @@ class _MovieListScreenState extends State<MovieListScreen> {
                       icon: Icon(Icons.close_rounded,
                           size: 20,
                           color: _editingController.text != ''
-                              ? Colors.white.withOpacity(.6)
+                              ? kDefaultText.withOpacity(.6)
                               : Colors.transparent),
                     ),
                     Icon(
                       Icons.filter_list_rounded,
-                      color: Colors.white.withOpacity(.6),
+                      color: kDefaultText.withOpacity(.6),
                       size: 20,
                     )
                   ],
@@ -181,7 +176,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                       ],
                       stops: [
                         0.0,
-                        0.03,
+                        0.0,
                       ], // 10% purple, 80% transparent, 10% purple
                     ).createShader(rect);
                   },
@@ -196,81 +191,11 @@ class _MovieListScreenState extends State<MovieListScreen> {
                           height: 100,
                         );
                       }
-                      return GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => MovieDetailScreen(
-                              movieData: movies![index],
-                              color: _itemColors[index % _itemColors.length],
-                            ),
-                          ),
-                        ),
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.symmetric(vertical: 5),
-                          width: size.width,
-                          decoration: BoxDecoration(
-                            color: _itemColors[index % _itemColors.length],
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black,
-                                blurRadius: 0,
-                                spreadRadius: 0,
-                                offset: Offset(4, 4),
-                              ),
-                            ],
-                          ),
-                          child: Row(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(7),
-                                child: Image.network(
-                                  movies![index]["Poster"],
-                                  width: 47,
-                                ),
-                              ),
-                              const SizedBox(width: 10),
-                              Flexible(
-                                child: RichText(
-                                  maxLines: 5,
-                                  overflow: TextOverflow.ellipsis,
-                                  text: TextSpan(
-                                    text: "${movies![index]["Title"]} \n",
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
-                                    children: [
-                                      TextSpan(
-                                        text:
-                                            "${movies![index]["Year"]} \u2022 ",
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.w300,
-                                          fontSize: 11,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                            text:
-                                                "${movies![index]["Runtime"]} \u2022 ",
-                                          ),
-                                          TextSpan(
-                                            text:
-                                                "${movies![index]["Genre"]} \n",
-                                          ),
-                                          TextSpan(
-                                            text: "${movies![index]["Actors"]}",
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
+                      return MovieListItem(
+                          index: index,
+                          movies: movies,
+                          itemColors: _itemColors,
+                          size: size);
                     },
                   ),
                 ),
@@ -280,19 +205,25 @@ class _MovieListScreenState extends State<MovieListScreen> {
           BubbleMenu(
             items: [
               BubbleMenuItem(
-                icon: const Icon(
+                icon: Icon(
                   Icons.search_rounded,
-                  color: Colors.white,
+                  color: kDefaultText,
                   size: 15,
                 ),
-                onTap: () {
-                  print("Scan to search");
+                onTap: () async {
+                  String barcodeScanRes =
+                      await FlutterBarcodeScanner.scanBarcode(
+                          "red", "cancel", false, ScanMode.BARCODE);
+                  setState(() {
+                    _editingController.text = barcodeScanRes;
+                  });
+                  filterSearchResults(barcodeScanRes, field: "Barcode");
                 },
               ),
               BubbleMenuItem(
-                icon: const Icon(
+                icon: Icon(
                   Icons.add_rounded,
-                  color: Colors.white,
+                  color: kDefaultText,
                   size: 15,
                 ),
                 onTap: () => print("Scan to add"),

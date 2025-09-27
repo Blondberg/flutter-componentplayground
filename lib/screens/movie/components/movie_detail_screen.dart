@@ -4,9 +4,8 @@ import 'package:flutter_componentplayground/screens/movie/components/my_appbar_i
 
 class MovieDetailScreen extends StatelessWidget {
   final Map<String, dynamic> movieData;
-  final Color color;
-  const MovieDetailScreen(
-      {Key? key, required this.movieData, required this.color})
+  final Color? color;
+  const MovieDetailScreen({Key? key, required this.movieData, this.color})
       : super(key: key);
 
   @override
@@ -64,10 +63,10 @@ class MovieDetailScreen extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            SizedBox(height: 20),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(17),
-                              child: Image.network(movieData["Poster"],
-                                  height: 250),
+                              child: Text(""),
                             ),
                             const SizedBox(
                               height: 30,
@@ -95,10 +94,7 @@ class MovieDetailScreen extends StatelessWidget {
                                 ),
                                 children: [
                                   TextSpan(
-                                    text: "${movieData["Runtime"]} \u2022 ",
-                                  ),
-                                  TextSpan(
-                                    text: "${movieData["Genre"]} \n",
+                                    text: "Barcode: ${movieData["Barcode"]!}",
                                   ),
                                 ],
                               ),
@@ -112,7 +108,7 @@ class MovieDetailScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 10),
                                 Text(
-                                  "${movieData["imdbRating"]} / 10",
+                                  "",
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w300,
@@ -130,18 +126,6 @@ class MovieDetailScreen extends StatelessWidget {
                                 children: [
                                   Container(
                                     width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: color,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Colors.black,
-                                          blurRadius: 0,
-                                          spreadRadius: 0,
-                                          offset: Offset(4, 4),
-                                        ),
-                                      ],
-                                    ),
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 10,
                                       horizontal: 10,
@@ -155,7 +139,7 @@ class MovieDetailScreen extends StatelessWidget {
                                             fontSize: 15),
                                         children: [
                                           TextSpan(
-                                            text: movieData["Plot"],
+                                            text: "",
                                             style: const TextStyle(
                                               fontWeight: FontWeight.w300,
                                               fontSize: 15,
@@ -169,18 +153,6 @@ class MovieDetailScreen extends StatelessWidget {
                                   const SizedBox(height: 10),
                                   Container(
                                     width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: color,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Colors.black,
-                                          blurRadius: 0,
-                                          spreadRadius: 0,
-                                          offset: Offset(4, 4),
-                                        ),
-                                      ],
-                                    ),
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 10,
                                       horizontal: 10,
@@ -194,7 +166,7 @@ class MovieDetailScreen extends StatelessWidget {
                                             fontSize: 17),
                                         children: [
                                           TextSpan(
-                                            text: movieData["Director"],
+                                            text: "",
                                             style: const TextStyle(
                                               fontWeight: FontWeight.w300,
                                               fontSize: 15,
@@ -207,18 +179,6 @@ class MovieDetailScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 10),
                                   Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: color,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Colors.black,
-                                          blurRadius: 0,
-                                          spreadRadius: 0,
-                                          offset: Offset(4, 4),
-                                        ),
-                                      ],
-                                    ),
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 10,
                                       horizontal: 10,
@@ -232,7 +192,7 @@ class MovieDetailScreen extends StatelessWidget {
                                             fontSize: 15),
                                         children: [
                                           TextSpan(
-                                            text: movieData["Actors"],
+                                            text: "",
                                             style: const TextStyle(
                                               fontWeight: FontWeight.w300,
                                               fontSize: 15,
